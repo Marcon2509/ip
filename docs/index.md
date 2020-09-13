@@ -1,37 +1,286 @@
-## Welcome to GitHub Pages
+### Luigi Task Manager User Guide
 
-You can use the [editor on GitHub](https://github.com/Marcon2509/ip/edit/gh-pages/docs/index.md) to maintain and preview the content for your website in Markdown files.
+This Project is a Mario Themed Task Manager that allows you to schedules tasks to do!
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+___
+### Features of Luigi Task Manager
 
-### Markdown
+Here are the following features of the manager:
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+**1. Adding Tasks to a list**
 
-```markdown
-Syntax highlighted code block
+**2. Display the list**
 
-# Header 1
-## Header 2
-### Header 3
+**3. Marking Tasks as completed**
 
-- Bulleted
-- List
+**4. Deleting Tasks from a List**
 
-1. Numbered
-2. List
+**5. Search for certain tasks based on key words**
 
-**Bold** and _Italic_ and `Code` text
+**6. Reschedule Tasks if edits are needed**
 
-[Link](url) and ![Image](src)
-```
+**7. Exiting the program**
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+**8. Storing of tasks**
 
-### Jekyll Themes
+___
+### List of details about how to use the features of the Manager
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Marcon2509/ip/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+The following list contains details on what each
+command does as well as examples of how to use it:
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+
+1 Adding Tasks
+======
+
+Users can add 3 Types of Tasks to the List.
+
+- ToDo
+
+- Deadline
+
+- Event
+
+ # **Command Input**
+
+  - **Todo:** todo \<detail of task\> *OR* T \<detail of task\>
+  
+  Adds a Todo task that only requires details of the task.
+  
+  *Examples:*
+  
+  ```
+  todo feed the dog      ([T][X] feed the dog)
+  
+  T pet the cat          ([T][X] pet the cat)
+  ```
+  
+  - **Deadline:** deadline \<detail of task\> /by \<date & time\> *OR* DL \<detail of task\> /by \<date & time\>
+  
+  Adds a Deadline task that requires the details of the task and the date by which it needs to be completedby.
+  
+  *Examples:*
+  
+  ```
+  deadline feed the dog /by 12/09/2020 1100      ([D][X] feed the dog (by: 12 Sep 2020, 11:00))
+  
+  DL pet the cat /by 12/09/2020 23:00             ([D][X] pet the cat (by: 12 Sep 2020, 23:00))
+  ```
+  
+  - **Event:** event \<detail of task\> /at \<date & time\> *OR* E \<detail of task\> /at \<date & time\>
+  
+  Adds a Event task that requires the details of the task and the date of when the event starts.
+  
+  *Examples:*
+  
+  ```
+  event dog birthday party /at 12/09/2020 1100      ([E][X] dog birthday party (at: 12 Sep 2020, 11:00))
+  
+  E belly rubbing ceremony /at 12/09/2020 23:00             ([E][X] belly rubbing ceremony (at: 12 Sep 2020, 23:00))
+  ```
+
+2 Display The List
+======
+
+# **Command Input**
+
+  - **List:** list **OR** L
+  
+  Will display all tasks added in the list.
+  
+  
+  *Examples of input:*
+  
+  ```
+ list
+ 
+ L
+  ```
+  
+  *Example of output:*
+  
+  ```
+ Here are the tasks in your list:
+ 1. [T][X] feed the dog
+ 2. [E][X] dog birthday party (at: 12 Sep 2020, 11:00)
+ 3. [D][X] pet the cat (by: 12 Sep 2020, 23:00)
+  ```
+  
+  
+
+3 Marking Completed Tasks
+======
+
+# **Command Input**
+
+  - **Done:** done \<number of the task in the list to mark completed\> *OR* D \<number of the task in the list to mark completed\>
+  
+  Will mark a task as completed based on the number in the list spcified.
+  
+  *Example of your list:*
+  
+  ```
+ Here are the tasks in your list:
+ 1. [T][X] feed the dog
+ 2. [E][X] dog birthday party (at: 12 Sep 2020, 11:00)
+ 3. [D][X] pet the cat (by: 12 Sep 2020, 23:00)
+  ```
+  
+  *Examples of input:*
+  
+  ```
+ done 2
+ 
+ D 2
+  ```
+  
+ *Examples of output:*
+ 
+ ```
+ Nice! I've marked this task as done:
+ [E][✓] dog birthday party (at: 12 Sep 2020, 11:00)
+ ```
+
+4 Deleting Tasks from the List
+======
+
+# **Command Input**
+
+  - **Delete:** delete \<number of the task in the list to mark completed\> *OR* DEL \<number of the task in the list to mark completed\>
+  
+  Will delete a task from the list based on the number in the list spcified.
+  
+  *Example of your list:*
+  
+  ```
+ Here are the tasks in your list:
+ 1. [T][X] feed the dog
+ 2. [E][✓] dog birthday party (at: 12 Sep 2020, 11:00)
+ 3. [D][X] pet the cat (by: 12 Sep 2020, 23:00)
+  ```
+  
+  *Examples of input:*
+  
+  ```
+ delete 2
+ 
+ DEL 2
+  ```
+  
+ *Examples of output:*
+ 
+ ```
+ Noted. I've removed this task:
+ [E][✓] dog birthday party (at: 12 Sep 2020, 11:00)
+ Now you have 2 tasks in your list
+ ```
+ *When command List is called again, the list will look like this:*
+ 
+  ```
+ Here are the tasks in your list:
+ 1. [T][X] feed the dog
+ 2. [D][X] pet the cat (by: 12 Sep 2020, 23:00)
+  ```
+ 5 Search for certain tasks based on key words
+======
+
+# **Command Input**
+
+  - **Find:** find \<keyword\> *OR* F \<keyword\>
+  
+  Will display a separate list of all tasks that contain the keyword.
+  
+  *Example of your list:*
+  
+  ```
+ Here are the tasks in your list:
+ 1. [T][X] feed the dog
+ 2. [E][X] dog birthday party (at: 12 Sep 2020, 11:00)
+ 3. [D][X] pet the cat (by: 12 Sep 2020, 23:00)
+  ```
+  
+  *Examples of input:*
+  
+  ```
+ find dog
+ 
+ F dog
+  ```
+  
+ *Examples of output:*
+ 
+ ```
+ Here are the matching tasks in your list:
+ 1. [T][X] feed the dog
+ 2. [E][X] dog birthday party (at: 12 Sep 2020, 23:00)
+ ```
+ 
+ 6 Reschedule Tasks
+======
+
+# **Command Input**
+
+  - **Reschedule:** reschedule \<number of the task in the list to change\> /to \<date to change to\> 
+  
+  *OR* R \<number of the task in the list to change\> /to \<date to change to\>
+  
+  Will change the date and time of Event and Deadline tasks to the date specified vased on the number order in the list.
+  An error will show if user tries to reschedule a Todo Task.
+  
+  *Example of your list:*
+  
+  ```
+ Here are the tasks in your list:
+ 1. [T][X] feed the dog
+ 2. [E][X] dog birthday party (at: 12 Sep 2020, 11:00)
+ 3. [D][X] pet the cat (by: 12 Sep 2020, 23:00)
+  ```
+  
+  *Examples of input:*
+  
+  ```
+ reschedule 2 /to 10/11/2023 1500 
+ 
+ R 2 /to 10/11/2023 1500 
+  ```
+  
+ *Example of output:*
+ 
+ ```
+ Noted. I have now reschedule [E][X] dog birthday party (at: 12 Sep 2020, 11:00) to:
+ [E][X] dog birthday party (at: 10 Nov 2023, 15:00)
+ ```
+ 
+ 7 Exiting the program
+======
+
+# **Command Input**
+
+  - **Exit:** bye **OR** B.
+  
+  Will display a farewell message before exiting the program.
+ 
+  
+  *Examples of input:*
+  
+  ```
+ bye
+ 
+ B
+  ```
+  
+ *Example of output:*
+ 
+ ```
+ Bye. Hope to see you again soon!
+ ```
+ 
+ 8 Storing of Tasks
+======
+ 
+ Upon exiting the program, all tasks in the list will be saved onto a file called list.duke.
+ If the file does not exist, anew file will be created in the hard drive of the pc.
+ 
+ 
+ 
